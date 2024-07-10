@@ -1,0 +1,123 @@
+/* ---------------------------------------------------
+ * 2.3.3 Responsive Tables
+ * ---------------------------------------------------*/
+#responsive-tables table {
+  margin: auto;
+  max-width: 100%;
+  transition: all 0.3s;
+  /* overflow: hidden; /* position: sticky won't work */
+}
+
+@media screen and (max-width: 900px) {
+  #responsive-tables table,
+  #responsive-tables tr,
+  #responsive-tables td {
+    display: block;
+    width: 600px;
+    position: relative;
+    box-sizing: border-box;
+  }
+
+  #responsive-tables tr {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #responsive-tables thead th {
+    position: relative;
+    display: none;
+  }
+
+  #responsive-tables tr:hover {
+    background: transparent;
+  }
+
+  #responsive-tables td:first-child {
+    grid-column: span 2;
+    position: absolute;
+    z-index: 22;
+    top: 0;
+    background: rgba(164, 88, 255, 1) !important;
+    font-weight: 900 !important;
+  }
+
+  #responsive-tables td:not(:first-child) {
+    width: 300px;
+    /*     float: left; */
+    /*     clear: both; */
+    padding: 5px 20px 5px 150px;
+    position: relative;
+    text-align: left;
+  }
+
+  #responsive-tables td:not(:first-child):before {
+    /*     color: lighten($baseColor, 30%); */
+    opacity: 0.6;
+    content: "";
+    display: block;
+    left: 10px;
+    top: 5px;
+    position: absolute;
+  }
+
+  #responsive-tables td:hover {
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  #responsive-tables td:hover:before {
+    background: transparent;
+  }
+
+  #responsive-tables td:nth-child(2):before {
+    content: "Cases:";
+  }
+  #responsive-tables td:nth-child(3):before {
+    content: "New Cases:";
+  }
+  #responsive-tables td:nth-child(4):before {
+    content: "Deaths:";
+  }
+  #responsive-tables td:nth-child(5):before {
+    content: "New Deaths:";
+  }
+  #responsive-tables td:nth-child(6):before {
+    content: "Active Cases:";
+  }
+  #responsive-tables td:nth-child(7):before {
+    content: "Critical:";
+  }
+  #responsive-tables td:nth-child(8):before {
+    content: "Recovered:";
+  }
+
+  tr {
+    margin: 1rem 0;
+    position: relative;
+  }
+
+  tr:first-child {
+    display: none;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  #responsive-tables table,
+  #responsive-tables tr,
+  #responsive tables td {
+    display: grid;
+    width: 100% !important;
+  }
+
+  #responsive-tables td:first-child {
+    display: grid;
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+
+  #responsive-tables td {
+    display: grid;
+    grid-column: span 2;
+    width: 100%;
+  }
+}
